@@ -45,9 +45,8 @@ where date >= date :'start'
 and date < date :'start' + interval '1 month'
 order by date;
 
--- returns the first non-null expression in a list.
-select cast(calendar.entry as date) as date,
-       coalesce(shares, 0) as shares,
+select cast(calendar.entry as date) as date, -- transforms the generated calendar.entry into the date data type.
+       coalesce(shares, 0) as shares, -- COALESCE returns the first of its arguments that is not null.
        coalesce(trades, 0) as trades,
        to_char(
           coalesce(dollars, 0),
