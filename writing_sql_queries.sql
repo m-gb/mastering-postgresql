@@ -71,3 +71,5 @@ with four_albums as
        lateral get_all_albums(artistid)
   order by artistid, duration desc;
 -- Using stored procedure allows reusing SQL code in between use cases, on the server side.
+-- Another advantage of using stored procedures is that you send even less data over the network,
+-- as the query text is stored on the database server.
